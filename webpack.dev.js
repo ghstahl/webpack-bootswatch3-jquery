@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 var path = require('path');
- 
+
 module.exports = {
   entry: './app/index.js',
   devtool: 'cheap-module-source-map',
@@ -10,6 +10,7 @@ module.exports = {
   },
   module:{
 	rules: [
+	  { test: require.resolve("jquery"), loader: "expose-loader?$!expose-loader?jQuery" },
 	  {
 	    test: /\.css$/,
 	    use: [ 'style-loader', 'css-loader' ]
