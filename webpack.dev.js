@@ -41,6 +41,12 @@ module.exports = {
 	            jQuery: "jquery",
 	            "window.jQuery": "jquery"
 	        })
-  ]
+  ],
+  devServer: {
+    contentBase: './dist/',
+    port: 1338,
+    hot: true,
+    inline: true
+  }
   
 };
