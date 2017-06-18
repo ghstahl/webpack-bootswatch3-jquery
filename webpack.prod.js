@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
   entry: './app/index.js',
@@ -44,6 +45,13 @@ module.exports = {
               $: "jquery",
               jQuery: "jquery",
               "window.jQuery": "jquery"
-          })
+          }),
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.(js|html)$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
   ]
 }
